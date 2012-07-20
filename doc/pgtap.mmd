@@ -3395,6 +3395,20 @@ omitted, it will default to "Procedural language `:language` should exist".
 The inverse of `has_language()`, this function tests for the *absence* of a
 procedural language.
 
+### `has_encoding()` ###
+
+    SELECT has_encoding( :encoding, :description );
+
+**Parameters**
+
+`:encoding`
+: Name of the encoding
+
+`:description`
+: A short description of the test
+
+Checks to ensure that the database is using a specific encoding.
+
 Table For One
 -------------
 

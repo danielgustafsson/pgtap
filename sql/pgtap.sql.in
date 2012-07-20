@@ -4534,6 +4534,14 @@ RETURNS TEXT AS $$
     SELECT language_is_trusted($1, 'Procedural language ' || quote_ident($1) || ' should be trusted' );
 $$ LANGUAGE SQL;
 
+-- has_encoding( encoding, description )
+CREATE OR REPLACE FUNCTION has_encoding( NAME, TEXT )
+DECLARE
+BEGIN
+	SELECT ok(current_setting('server_encoding') = $1, $2);
+END;
+$$ LANGUAGE plpgsql;
+
 CREATE OR REPLACE FUNCTION _opc_exists( NAME, NAME )
 RETURNS BOOLEAN AS $$
     SELECT EXISTS (
